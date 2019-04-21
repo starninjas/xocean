@@ -832,6 +832,13 @@ minetest.register_node("xocean:skeleton_horn", {
 		minetest.set_node(pos, {name = "xocean:horn_skeleton"})
 	end,
 })
+minetest.override_item("default:coral_orange", {
+ 	description = "Fire Coral Block",
+	tiles = {"xocean_coral_fire.png"},
+	groups = {cracky = 3},
+	drop = "xocean:fire_skeleton",
+	sounds = default.node_sound_stone_defaults(),
+})
 minetest.register_node("xocean:fire", {
 	description = "Fire Coral",
 	drawtype = "plantlike_rooted",
@@ -848,8 +855,8 @@ minetest.register_node("xocean:fire", {
 				{-4/16, 0.5, -4/16, 4/16, 1.5, 4/16},
 		},
 	},
-	drop = "xocean:fire_skeleton",
-	node_dig_prediction = "xocean:fire_block",
+	drop = "xocean:skeleton_fire",
+	node_dig_prediction = "xocean:default:coral_orange",
 	node_placement_prediction = "",
 	sounds = default.node_sound_stone_defaults({
 		dig = {name = "default_dig_snappy", gain = 0.2},
@@ -865,7 +872,7 @@ minetest.register_node("xocean:fire", {
 		local pos_under = pointed_thing.under
 		local pos_above = pointed_thing.above
 
-		if minetest.get_node(pos_under).name ~= "xocean:fire_block" or
+		if minetest.get_node(pos_under).name ~= "default:coral_orange" or
 				minetest.get_node(pos_above).name ~= "default:water_source" then
 			return itemstack
 		end
@@ -886,14 +893,13 @@ minetest.register_node("xocean:fire", {
 	end,
 
 	after_destruct  = function(pos, oldnode)
-		minetest.set_node(pos, {name = "xocean:fire_block"})
+		minetest.set_node(pos, {name = "default:coral_orange"})
 	end,
 })
-minetest.override_item("default:coral_orange", {
- 	description = "Fire Coral Block",
-	tiles = {"xocean_coral_fire.png"},
+minetest.register_node("xocean:fire_skeleton", {
+ 	description = "Fire Coral Skeleton Block",
+	tiles = {"xocean_coral_fire_skeleton.png"},
 	groups = {cracky = 3},
-	drop = "xocean:fire_skeleton",
 	sounds = default.node_sound_stone_defaults(),
 })
 minetest.register_node("xocean:skeleton_fire", {
