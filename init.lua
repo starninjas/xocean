@@ -212,7 +212,7 @@ minetest.register_craftitem("xocean:kelp", {
 minetest.register_craftitem("xocean:sushi", {
 	description = "Sushi",
 	on_use = minetest.item_eat(6),
-	inventory_image = "xocean_dried_sushi.png",
+	inventory_image = "xocean_sushi.png",
 })
 minetest.register_craft({
 	output = '"xocean:sushi" 1',
