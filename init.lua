@@ -59,8 +59,8 @@ minetest.register_node("xocean:ocean_circular", {
 minetest.register_craft({
 	output = '"xocean:ocean_circular" 4',
 	recipe = {
-		{'xocean:ocean_craved', 'xocean:ocean_carved',},
-		{'xocean:ocean_craved', 'xocean:ocean_carved',},
+		{'xocean:ocean_carved', 'xocean:ocean_carved',},
+		{'xocean:ocean_carved', 'xocean:ocean_carved',},
 		},
 })
 
@@ -206,8 +206,20 @@ minetest.register_craft({
 })
 minetest.register_craftitem("xocean:kelp", {
 	description = "Dried Kelp",
-	on_use = minetest.item_eat(2),
+	on_use = minetest.item_eat(1),
 	inventory_image = "xocean_dried_kelp.png",
+})
+minetest.register_craftitem("xocean:sushi", {
+	description = "Sushi",
+	on_use = minetest.item_eat(6),
+	inventory_image = "xocean_dried_sushi.png",
+})
+minetest.register_craft({
+	output = '"xocean:sushi" 1',
+	recipe = {
+		{'xocean:fish_edible'},
+		{'xocean:kelp' },
+		},
 })
 minetest.register_node("xocean:seagrass", {
 	description = "Seagrass",
@@ -225,7 +237,6 @@ minetest.register_node("xocean:seagrass", {
 				{-4/16, 0.5, -4/16, 4/16, 1.5, 4/16},
 		},
 	},
-	drop = "",
 	node_dig_prediction = "default:sand",
 	node_placement_prediction = "",
 	sounds = default.node_sound_stone_defaults({
@@ -393,7 +404,7 @@ minetest.override_item("default:coral_pink", {
 	end,
 })
 minetest.register_node("xocean:brain_skeleton", {
-	description = "Brain Coral Skeleton",
+	description = "Brain Coral Skeleton Block",
 	tiles = {"xocean_coral_brain_skeleton.png"},
 	groups = {cracky = 3},
 	sounds = default.node_sound_stone_defaults(),
@@ -477,7 +488,7 @@ minetest.override_item("default:coral_cyan", {
 				{-4/16, 0.5, -4/16, 4/16, 1.5, 4/16},
 		},
 	},
-	drop = "xocean:tube_skeleton",
+	drop = "xocean:skeleton_tube",
 	node_dig_prediction = "xocean:tube_block",
 	node_placement_prediction = "",
 	sounds = default.node_sound_stone_defaults({
@@ -519,12 +530,12 @@ minetest.override_item("default:coral_cyan", {
 	end,
 })
 minetest.register_node("xocean:tube_skeleton", {
-	description = "Tube Coral Skeleton",
+	description = "Tube Coral Skeleton Block",
 	tiles = {"xocean_coral_tube_skeleton.png"},
 	groups = {cracky = 3},
 	sounds = default.node_sound_stone_defaults(),
 })
-minetest.register_node("xocean:tube_bubble", {
+minetest.register_node("xocean:skeleton_tube", {
 	description = "Tube Coral Skeleton",
 	drawtype = "plantlike_rooted",
 	waving = 1,
@@ -591,6 +602,7 @@ minetest.register_node("xocean:bubble", {
 	description = "Bubble Coral",
 	drawtype = "plantlike_rooted",
 	waving = 1,
+	drop = "xocean:skeleton_bubble",
 	paramtype = "light",
 	tiles = {"xocean_coral_bubble.png"},
 	special_tiles = {{name = "xocean_bubble.png", tileable_vertical = true}},
@@ -722,6 +734,7 @@ minetest.register_node("xocean:horn", {
 	special_tiles = {{name = "xocean_horn.png", tileable_vertical = true}},
 	inventory_image = "xocean_horn.png",
 	groups = {snappy = 3},
+	drop = "xocean:skeleton_horn",
 	selection_box = {
 		type = "fixed",
 		fixed = {
@@ -981,8 +994,8 @@ minetest.register_decoration({
 			"deciduous_forest_ocean",
 			"sandstone_desert_ocean",
 			"cold_desert_ocean"},
-		y_max = -10,
-		y_min = -40,
+		y_max = -6,
+		y_min = -16,
 		flags = "force_placement",
 		schematic = minetest.get_modpath("xocean") .. "/schems/brain.mts",
 		param2 = 48,
@@ -1010,8 +1023,8 @@ minetest.register_decoration({
 			"deciduous_forest_ocean",
 			"sandstone_desert_ocean",
 			"cold_desert_ocean"},
-		y_max = -10,
-		y_min = -40,
+		y_max = -6,
+		y_min = -16,
 		flags = "force_placement",
 		schematic = minetest.get_modpath("xocean") .. "/schems/horn.mts",
 		param2 = 48,
@@ -1039,8 +1052,8 @@ minetest.register_decoration({
 			"deciduous_forest_ocean",
 			"sandstone_desert_ocean",
 			"cold_desert_ocean"},
-		y_max = -10,
-		y_min = -40,
+		y_max = -6,
+		y_min = -16,
 		flags = "force_placement",
 		schematic = minetest.get_modpath("xocean") .. "/schems/bubble.mts",
 		param2 = 48,
@@ -1068,8 +1081,8 @@ minetest.register_decoration({
 			"deciduous_forest_ocean",
 			"sandstone_desert_ocean",
 			"cold_desert_ocean"},
-		y_max = -10,
-		y_min = -40,
+		y_max = -6,
+		y_min = -16,
 		flags = "force_placement",
 		schematic = minetest.get_modpath("xocean") .. "/schems/tube.mts",
 		param2 = 48,
@@ -1097,8 +1110,8 @@ minetest.register_decoration({
 			"deciduous_forest_ocean",
 			"sandstone_desert_ocean",
 			"cold_desert_ocean"},
-		y_max = -10,
-		y_min = -40,
+		y_max = -6,
+		y_min = -16,
 		flags = "force_placement",
 		schematic = minetest.get_modpath("xocean") .. "/schems/fire.mts",
 		param2 = 48,
@@ -1126,8 +1139,8 @@ minetest.register_decoration({
 			"deciduous_forest_ocean",
 			"sandstone_desert_ocean",
 			"cold_desert_ocean"},
-		y_max = -10,
-		y_min = -40,
+		y_max = -6,
+		y_min = -1,
 		flags = "force_placement",
 		schematic = minetest.get_modpath("xocean") .. "/schems/brain2.mts",
 		param2 = 48,
@@ -1304,35 +1317,6 @@ minetest.register_decoration({
 		y_min = -40,
 		flags = "force_placement",
 		schematic = minetest.get_modpath("xocean") .. "/schems/brain3.mts",
-		param2 = 48,
-		param2_max = 96,
-	})
-minetest.register_decoration({
-		name = "xocean:brain4",
-		deco_type = "schematic",
-		place_on = {"default:sand"},
-		place_offset_y = -1,
-		sidelen = 1,
-		noise_params = {
-			offset = 0.0001,
-			scale = 0.0000001,
-			spread = {x = 100000, y = 100000, z = 100000},
-			seed = 87112,
-			octaves = 25,
-			persist = 0.7
-		},
-		biomes = {
-			"taiga_ocean",
-			"snowy_grassland_ocean",
-			"grassland_ocean",
-			"coniferous_forest_ocean",
-			"deciduous_forest_ocean",
-			"sandstone_desert_ocean",
-			"cold_desert_ocean"},
-		y_max = -15,
-		y_min = -40,
-		flags = "force_placement",
-		schematic = minetest.get_modpath("xocean") .. "/schems/brain4.mts",
 		param2 = 48,
 		param2_max = 96,
 	})
@@ -1715,6 +1699,8 @@ local l_water_level		= minetest.setting_get("water_level") - 2
 		view_range = 30,
 		water_damage = 0,
 		lava_damage = 10,
+		jump = false,
+		stepheight = 0.1,
 		light_damage = 0,
 		animation = {
 			speed_normal = 15,
@@ -1729,8 +1715,7 @@ local l_water_level		= minetest.setting_get("water_level") - 2
 	})
 	mobs:spawn_specific("xocean:dolphin",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	5, 20, 30, 10000, 2, -31000, l_water_level)
 	mobs:register_egg("xocean:dolphin", "Dolphin", "xocean_stone.png", 1)
-	
-	mobs:register_mob("xocean:fish", {
+mobs:register_mob("xocean:fish", {
 		type = "animal",
 		hp_min = 5,
 		hp_max = 5,
@@ -1851,4 +1836,44 @@ mobs:register_mob("xocean:fish3", {
 	})
 	mobs:spawn_specific("xocean:fish3",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	2, 20, 30, 10000, 5, -31000, l_water_level)
 	mobs:register_egg("xocean:fish3", "Tropical Fish (Dasher)", "xocean_fish3.png", 0)
+mobs:register_mob("xocean:fish4", {
+		type = "animal",
+		hp_min = 5,
+		hp_max = 5,
+		armor = 100,
+		visual_size = {x = 2, y = 2, z= 2},
+		collisionbox = {-0.25, -0.2, -0.25, 0.25, 0.2, 0.25},
+		visual = "mesh",
+		mesh = "fishy.b3d",
+		textures = {
+			{"mobs_fishy10.png"},
+			{"mobs_fishy11.png"},
+			{"mobs_fishy12.png"}
+		},
+		drops = {
+        {name = "xocean:fish_edible", chance = 2, min = 1, max = 2},
+    },
+		makes_footstep_sound = false,
+		walk_velocity = 2,
+		run_velocity = 3,
+		fly = true,
+		fly_in = "default:water_source",
+		fall_speed = 0,
+		view_range = 30,
+		water_damage = 0,
+		lava_damage = 10,
+		light_damage = 0,
+		animation = {
+			speed_normal = 15,
+	    speed_run = 25,
+			stand_start = 40,
+			stand_end = 100,
+	    walk_start = 40,
+	    walk_end = 100,
+	    run_start = 40,
+	    run_end = 100,
+		},
+	})
+	mobs:spawn_specific("xocean:fish4",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	2, 20, 30, 10000, 5, -31000, l_water_level)
+	mobs:register_egg("xocean:fish4", "Tropical Fish (Snapper)", "xocean_fish4.png", 0)
 end
