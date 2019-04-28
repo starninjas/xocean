@@ -984,7 +984,7 @@ minetest.register_decoration({
 		y_max = -10,
 		y_min = -40,
 		flags = "force_placement",
-		schematic = "/schems/brain.mts",
+		schematic = minetest.get_modpath("xocean") .. "/schems/brain.mts",
 		param2 = 48,
 		param2_max = 96,
 	})
@@ -1013,7 +1013,7 @@ minetest.register_decoration({
 		y_max = -10,
 		y_min = -40,
 		flags = "force_placement",
-		schematic = "/schems/horn.mts",
+		schematic = minetest.get_modpath("xocean") .. "/schems/horn.mts",
 		param2 = 48,
 		param2_max = 96,
 	})
@@ -1042,7 +1042,7 @@ minetest.register_decoration({
 		y_max = -10,
 		y_min = -40,
 		flags = "force_placement",
-		schematic = "/schems/bubble.mts",
+		schematic = minetest.get_modpath("xocean") .. "/schems/bubble.mts",
 		param2 = 48,
 		param2_max = 96,
 	})
@@ -1071,7 +1071,7 @@ minetest.register_decoration({
 		y_max = -10,
 		y_min = -40,
 		flags = "force_placement",
-		schematic = "/schems/tube.mts",
+		schematic = minetest.get_modpath("xocean") .. "/schems/tube.mts",
 		param2 = 48,
 		param2_max = 96,
 	})
@@ -1100,7 +1100,7 @@ minetest.register_decoration({
 		y_max = -10,
 		y_min = -40,
 		flags = "force_placement",
-		schematic = "/schems/fire.mts",
+		schematic = minetest.get_modpath("xocean") .. "/schems/fire.mts",
 		param2 = 48,
 		param2_max = 96,
 	})
@@ -1129,7 +1129,7 @@ minetest.register_decoration({
 		y_max = -10,
 		y_min = -40,
 		flags = "force_placement",
-		schematic = "/schems/brain2.mts",
+		schematic = minetest.get_modpath("xocean") .. "/schems/brain2.mts",
 		param2 = 48,
 		param2_max = 96,
 	})
@@ -1158,7 +1158,7 @@ minetest.register_decoration({
 		y_max = -10,
 		y_min = -40,
 		flags = "force_placement",
-		schematic = "/schems/horn2.mts",
+		schematic = minetest.get_modpath("xocean") .. "/schems/horn2.mts",
 		param2 = 48,
 		param2_max = 96,
 	})
@@ -1187,7 +1187,7 @@ minetest.register_decoration({
 		y_max = -10,
 		y_min = -40,
 		flags = "force_placement",
-		schematic = "/schems/bubble2.mts",
+		schematic = minetest.get_modpath("xocean") .. "/schems/bubble2.mts",
 		param2 = 48,
 		param2_max = 96,
 	})
@@ -1216,7 +1216,7 @@ minetest.register_decoration({
 		y_max = -10,
 		y_min = -40,
 		flags = "force_placement",
-		schematic = "/schems/tube2.mts",
+		schematic = minetest.get_modpath("xocean") .. "/schems/tube2.mts",
 		param2 = 48,
 		param2_max = 96,
 	})
@@ -1245,7 +1245,7 @@ minetest.register_decoration({
 		y_max = -10,
 		y_min = -40,
 		flags = "force_placement",
-		schematic = "/schems/fire2.mts",
+		schematic = minetest.get_modpath("xocean") .. "/schems/fire2.mts",
 		param2 = 48,
 		param2_max = 96,
 	})
@@ -1274,7 +1274,7 @@ minetest.register_decoration({
 		y_max = -10,
 		y_min = -40,
 		flags = "force_placement",
-		schematic = "/schems/tube3.mts",
+		schematic = minetest.get_modpath("xocean") .. "/schems/tube3.mts",
 		param2 = 48,
 		param2_max = 96,
 	})
@@ -1303,7 +1303,7 @@ minetest.register_decoration({
 		y_max = -10,
 		y_min = -40,
 		flags = "force_placement",
-		schematic = "/schems/brain3.mts",
+		schematic = minetest.get_modpath("xocean") .. "/schems/brain3.mts",
 		param2 = 48,
 		param2_max = 96,
 	})
@@ -1332,7 +1332,7 @@ minetest.register_decoration({
 		y_max = -15,
 		y_min = -40,
 		flags = "force_placement",
-		schematic = "/schems/brain4.mts",
+		schematic = minetest.get_modpath("xocean") .. "/schems/brain4.mts",
 		param2 = 48,
 		param2_max = 96,
 	})
