@@ -517,7 +517,7 @@ minetest.override_item("default:coral_cyan", {
 			return itemstack
 		end
 
-		minetest.set_node(pos_under, {name = "default:cyan_pink"})
+		minetest.set_node(pos_under, {name = "default:coral_cyan"})
 		if not (creative and creative.is_enabled_for(player_name)) then
 			itemstack:take_item()
 		end
@@ -742,7 +742,7 @@ minetest.register_node("xocean:horn", {
 				{-4/16, 0.5, -4/16, 4/16, 1.5, 4/16},
 		},
 	},
-	node_dig_prediction = "xocean:horn_block",
+	node_dig_prediction = "default:coral_brown",
 	node_placement_prediction = "",
 	sounds = default.node_sound_stone_defaults({
 		dig = {name = "default_dig_snappy", gain = 0.2},
@@ -758,7 +758,7 @@ minetest.register_node("xocean:horn", {
 		local pos_under = pointed_thing.under
 		local pos_above = pointed_thing.above
 
-		if minetest.get_node(pos_under).name ~= "xocean:horn_block" or
+		if minetest.get_node(pos_under).name ~= "default:coral_brown" or
 				minetest.get_node(pos_above).name ~= "default:water_source" then
 			return itemstack
 		end
@@ -779,7 +779,7 @@ minetest.register_node("xocean:horn", {
 	end,
 
 	after_destruct  = function(pos, oldnode)
-		minetest.set_node(pos, {name = "xocean:horn_block"})
+		minetest.set_node(pos, {name = "default:coral_brown"})
 	end,
 })
 minetest.override_item("default:coral_skeleton", {
