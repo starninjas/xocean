@@ -779,7 +779,8 @@ minetest.register_node("xocean:horn", {
 	end,
 
 	after_destruct  = function(pos, oldnode)
-		minetest.set_node(pos, {name = "xocean:horn_block"})
+		-- minetest.set_node(pos, {name = "xocean:horn_block"})
+		minetest.set_node(pos, {name = "xocean:horn"})
 	end,
 })
 minetest.override_item("default:coral_skeleton", {
@@ -804,7 +805,7 @@ minetest.register_node("xocean:skeleton_horn", {
 				{-4/16, 0.5, -4/16, 4/16, 1.5, 4/16},
 		},
 	},
-	drop = "xocean:skeleton:horn",
+	-- drop = "xocean:skeleton:horn",
 	node_dig_prediction = "xocean:horn_skeleton",
 	node_placement_prediction = "",
 	sounds = default.node_sound_stone_defaults({
@@ -821,7 +822,8 @@ minetest.register_node("xocean:skeleton_horn", {
 		local pos_under = pointed_thing.under
 		local pos_above = pointed_thing.above
 
-		if minetest.get_node(pos_under).name ~= "xocean:horn_skeleton" or
+		-- if minetest.get_node(pos_under).name ~= "xocean:horn_skeleton" or
+		if minetest.get_node(pos_under).name ~= "default:coral_skeleton" or
 				minetest.get_node(pos_above).name ~= "default:water_source" then
 			return itemstack
 		end
@@ -842,7 +844,8 @@ minetest.register_node("xocean:skeleton_horn", {
 	end,
 
 	after_destruct  = function(pos, oldnode)
-		minetest.set_node(pos, {name = "xocean:horn_skeleton"})
+		-- minetest.set_node(pos, {name = "xocean:horn_skeleton"})
+		minetest.set_node(pos, {name = "default:coral_skeleton"})
 	end,
 })
 minetest.override_item("default:coral_orange", {
