@@ -1,3 +1,7 @@
+
+-- Let the server console know the initialization is beginning.
+core.log("[Xocean] Initialization begins...")
+
 minetest.register_node("xocean:ocean_cobble", {
 	description = "Ocean Cobblestone",
 	tiles = {"xocean_cobble.png"},
@@ -1877,3 +1881,6 @@ mobs:register_mob("xocean:fish4", {
 	mobs:spawn_specific("xocean:fish4",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	2, 20, 30, 10000, 5, -31000, l_water_level)
 	mobs:register_egg("xocean:fish4", "Tropical Fish (Snapper)", "xocean_fish4.png", 0)
 end
+
+-- Let the server console know the initialization is done
+core.log("[Xocean] Initialization is complete.")
