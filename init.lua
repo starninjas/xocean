@@ -1,12 +1,12 @@
 minetest.register_node("xocean:ocean_cobble", {
 	description = "Ocean Cobblestone",
-	tile_images = {"xocean_cobble.png"},
+	tiles = {"xocean_cobble.png"},
 	groups = {cracky=3},
 })
 
 minetest.register_node("xocean:ocean_stone", {
 	description = "Ocean Stone",
-	tile_images = {"xocean_stone.png"},
+	tiles = {"xocean_stone.png"},
 	groups = {cracky=3},
 	drop= "xocean:ocean_cobble",
 })
@@ -38,7 +38,7 @@ minetest.register_ore({
 
 minetest.register_node("xocean:ocean_carved", {
 	description = "Carved Ocean Stone",
-	tile_images = {"xocean_carved.png"},
+	tiles = {"xocean_carved.png"},
 	groups = {cracky=2},
 })
 
@@ -52,7 +52,7 @@ minetest.register_craft({
 
 minetest.register_node("xocean:ocean_circular", {
 	description = "Circular Ocean Stone",
-	tile_images = {"xocean_circular.png"},
+	tiles = {"xocean_circular.png"},
 	groups = {cracky=2},
 })
 
@@ -66,7 +66,7 @@ minetest.register_craft({
 
 minetest.register_node("xocean:ocean_pillar", {
 	description = "Ocean Pillar",
-	tile_images = {"xocean_pillar.png"},
+	tiles = {"xocean_pillar.png"},
 	groups = {cracky=2},
 })
 
@@ -80,7 +80,7 @@ minetest.register_craft({
 
 minetest.register_node("xocean:ocean_brick", {
 	description = "Ocean Brick",
-	tile_images = {"xocean_brick.png"},
+	tiles = {"xocean_brick.png"},
 	groups = {cracky=2},
 })
 
@@ -116,7 +116,7 @@ minetest.register_craft({
 ---Sea stuff
 minetest.register_node("xocean:kelp_block", {
 	description = "Dried Kelp Block",
-	tile_images = {"xocean_kelp_block.png"},
+	tiles = {"xocean_kelp_block.png"},
 	groups = {snappy=3},
 	drop= "xocean:kelp 9",
 })
