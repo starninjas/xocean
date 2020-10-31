@@ -99,7 +99,7 @@ minetest.register_craft({
 minetest.register_node("xocean:sea_lantern", {
     description = "Sea Lantern",
     drawtype = "glasslike",
-	light_source = 30,
+	light_source = 14,
     tiles = {"xocean_lantern.png"},
     paramtype = "light",
     is_ground_content = true,
