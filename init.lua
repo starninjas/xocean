@@ -1,12 +1,16 @@
+
+-- Let the server console know the initialization is beginning.
+core.log("[Xocean] Initialization begins...")
+
 minetest.register_node("xocean:ocean_cobble", {
 	description = "Ocean Cobblestone",
-	tile_images = {"xocean_cobble.png"},
+	tiles = {"xocean_cobble.png"},
 	groups = {cracky=3},
 })
 
 minetest.register_node("xocean:ocean_stone", {
 	description = "Ocean Stone",
-	tile_images = {"xocean_stone.png"},
+	tiles = {"xocean_stone.png"},
 	groups = {cracky=3},
 	drop= "xocean:ocean_cobble",
 })
@@ -38,7 +42,7 @@ minetest.register_ore({
 
 minetest.register_node("xocean:ocean_carved", {
 	description = "Carved Ocean Stone",
-	tile_images = {"xocean_carved.png"},
+	tiles = {"xocean_carved.png"},
 	groups = {cracky=2},
 })
 
@@ -52,7 +56,7 @@ minetest.register_craft({
 
 minetest.register_node("xocean:ocean_circular", {
 	description = "Circular Ocean Stone",
-	tile_images = {"xocean_circular.png"},
+	tiles = {"xocean_circular.png"},
 	groups = {cracky=2},
 })
 
@@ -66,7 +70,7 @@ minetest.register_craft({
 
 minetest.register_node("xocean:ocean_pillar", {
 	description = "Ocean Pillar",
-	tile_images = {"xocean_pillar.png"},
+	tiles = {"xocean_pillar.png"},
 	groups = {cracky=2},
 })
 
@@ -80,7 +84,7 @@ minetest.register_craft({
 
 minetest.register_node("xocean:ocean_brick", {
 	description = "Ocean Brick",
-	tile_images = {"xocean_brick.png"},
+	tiles = {"xocean_brick.png"},
 	groups = {cracky=2},
 })
 
@@ -95,7 +99,7 @@ minetest.register_craft({
 minetest.register_node("xocean:sea_lantern", {
     description = "Sea Lantern",
     drawtype = "glasslike",
-	light_source = 30,
+	light_source = 14,
     tiles = {"xocean_lantern.png"},
     paramtype = "light",
     is_ground_content = true,
@@ -116,7 +120,7 @@ minetest.register_craft({
 ---Sea stuff
 minetest.register_node("xocean:kelp_block", {
 	description = "Dried Kelp Block",
-	tile_images = {"xocean_kelp_block.png"},
+	tiles = {"xocean_kelp_block.png"},
 	groups = {snappy=3},
 	drop= "xocean:kelp 9",
 })
@@ -1877,3 +1881,6 @@ mobs:register_mob("xocean:fish4", {
 	mobs:spawn_specific("xocean:fish4",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	2, 20, 30, 10000, 5, -31000, l_water_level)
 	mobs:register_egg("xocean:fish4", "Tropical Fish (Snapper)", "xocean_fish4.png", 0)
 end
+
+-- Let the server console know the initialization is done
+core.log("[Xocean] Initialization is complete.")
