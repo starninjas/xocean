@@ -1,7 +1,3 @@
-
--- Let the server console know the initialization is beginning.
-core.log("[Xocean] Initialization begins...")
-
 minetest.register_node("xocean:ocean_cobble", {
 	description = "Ocean Cobblestone",
 	tiles = {"xocean_cobble.png"},
@@ -783,9 +779,7 @@ minetest.register_node("xocean:horn", {
 	end,
 
 	after_destruct  = function(pos, oldnode)
-		-- minetest.set_node(pos, {name = "xocean:horn_block"})
-		minetest.set_node(pos, {name = "xocean:horn"})
-		minetest.set_node(pos, {name = "default:coral_brown"})
+		minetest.set_node(pos, {name = "xocean:horn_block"})
 	end,
 })
 minetest.override_item("default:coral_skeleton", {
@@ -810,7 +804,7 @@ minetest.register_node("xocean:skeleton_horn", {
 				{-4/16, 0.5, -4/16, 4/16, 1.5, 4/16},
 		},
 	},
-	-- drop = "xocean:skeleton:horn",
+	drop = "xocean:skeleton_horn",
 	node_dig_prediction = "xocean:horn_skeleton",
 	node_placement_prediction = "",
 	sounds = default.node_sound_stone_defaults({
@@ -849,8 +843,7 @@ minetest.register_node("xocean:skeleton_horn", {
 	end,
 
 	after_destruct  = function(pos, oldnode)
-		-- minetest.set_node(pos, {name = "xocean:horn_skeleton"})
-		minetest.set_node(pos, {name = "default:coral_skeleton"})
+		minetest.set_node(pos, {name = "xocean:horn_skeleton"})
 	end,
 })
 minetest.override_item("default:coral_orange", {
@@ -1702,6 +1695,8 @@ local l_water_level		= minetest.setting_get("water_level") - 2
 		run_velocity = 6,
 		fly = true,
 		fly_in = "default:water_source",
+		jump = false,
+		stepheight = 0.1,
 		fall_speed = 0,
 		rotate = 90,
 		view_range = 30,
@@ -1711,10 +1706,10 @@ local l_water_level		= minetest.setting_get("water_level") - 2
 		stepheight = 0.1,
 		light_damage = 0,
 		animation = {
-			speed_normal = 15,
+		speed_normal = 15,
 	    speed_run = 25,
-			stand_start = 40,
-			stand_end = 100,
+		stand_start = 40,
+		stand_end = 100,
 	    walk_start = 40,
 	    walk_end = 100,
 	    run_start = 40,
@@ -1723,6 +1718,7 @@ local l_water_level		= minetest.setting_get("water_level") - 2
 	})
 	mobs:spawn_specific("xocean:dolphin",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	5, 20, 30, 10000, 2, -31000, l_water_level)
 	mobs:register_egg("xocean:dolphin", "Dolphin", "xocean_stone.png", 1)
+	
 mobs:register_mob("xocean:fish", {
 		type = "animal",
 		hp_min = 5,
@@ -1746,16 +1742,18 @@ mobs:register_mob("xocean:fish", {
 		run_velocity = 3,
 		fly = true,
 		fly_in = "default:water_source",
+		jump = false,
+		stepheight = 0.1,
 		fall_speed = 0,
 		view_range = 30,
 		water_damage = 0,
 		lava_damage = 10,
 		light_damage = 0,
 		animation = {
-			speed_normal = 15,
+		speed_normal = 15,
 	    speed_run = 25,
-			stand_start = 40,
-			stand_end = 100,
+		stand_start = 40,
+		stand_end = 100,
 	    walk_start = 40,
 	    walk_end = 100,
 	    run_start = 40,
@@ -1786,16 +1784,18 @@ mobs:register_mob("xocean:fish2", {
 		run_velocity = 3,
 		fly = true,
 		fly_in = "default:water_source",
+		jump = false,
+		stepheight = 0.1,
 		fall_speed = 0,
 		view_range = 30,
 		water_damage = 0,
 		lava_damage = 10,
 		light_damage = 0,
 		animation = {
-			speed_normal = 15,
+		speed_normal = 15,
 	    speed_run = 25,
-			stand_start = 40,
-			stand_end = 100,
+		stand_start = 40,
+		stand_end = 100,
 	    walk_start = 40,
 	    walk_end = 100,
 	    run_start = 40,
@@ -1804,6 +1804,7 @@ mobs:register_mob("xocean:fish2", {
 	})
 	mobs:spawn_specific("xocean:fish2",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	2, 20, 30, 10000, 5, -31000, l_water_level)
 	mobs:register_egg("xocean:fish2", "Tropical Fish (SunStreak)", "xocean_fish2.png", 0)
+	
 mobs:register_mob("xocean:fish3", {
 		type = "animal",
 		hp_min = 5,
@@ -1826,16 +1827,18 @@ mobs:register_mob("xocean:fish3", {
 		run_velocity = 3,
 		fly = true,
 		fly_in = "default:water_source",
+		jump = false,
+		stepheight = 0.1,
 		fall_speed = 0,
 		view_range = 30,
 		water_damage = 0,
 		lava_damage = 10,
 		light_damage = 0,
 		animation = {
-			speed_normal = 15,
+		speed_normal = 15,
 	    speed_run = 25,
-			stand_start = 40,
-			stand_end = 100,
+		stand_start = 40,
+		stand_end = 100,
 	    walk_start = 40,
 	    walk_end = 100,
 	    run_start = 40,
@@ -1844,6 +1847,7 @@ mobs:register_mob("xocean:fish3", {
 	})
 	mobs:spawn_specific("xocean:fish3",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	2, 20, 30, 10000, 5, -31000, l_water_level)
 	mobs:register_egg("xocean:fish3", "Tropical Fish (Dasher)", "xocean_fish3.png", 0)
+	
 mobs:register_mob("xocean:fish4", {
 		type = "animal",
 		hp_min = 5,
@@ -1866,16 +1870,18 @@ mobs:register_mob("xocean:fish4", {
 		run_velocity = 3,
 		fly = true,
 		fly_in = "default:water_source",
+		jump = false,
+		stepheight = 0.1,
 		fall_speed = 0,
 		view_range = 30,
 		water_damage = 0,
 		lava_damage = 10,
 		light_damage = 0,
 		animation = {
-			speed_normal = 15,
+		speed_normal = 15,
 	    speed_run = 25,
-			stand_start = 40,
-			stand_end = 100,
+		stand_start = 40,
+		stand_end = 100,
 	    walk_start = 40,
 	    walk_end = 100,
 	    run_start = 40,
@@ -1885,6 +1891,3 @@ mobs:register_mob("xocean:fish4", {
 	mobs:spawn_specific("xocean:fish4",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	2, 20, 30, 10000, 5, -31000, l_water_level)
 	mobs:register_egg("xocean:fish4", "Tropical Fish (Snapper)", "xocean_fish4.png", 0)
 end
-
--- Let the server console know the initialization is done
-core.log("[Xocean] Initialization is complete.")
