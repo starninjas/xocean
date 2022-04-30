@@ -2,6 +2,7 @@ minetest.register_node("xocean:ocean_cobble", {
 	description = "Ocean Cobblestone",
 	tiles = {"xocean_cobble.png"},
 	groups = {cracky=3},
+	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("xocean:ocean_stone", {
@@ -9,6 +10,7 @@ minetest.register_node("xocean:ocean_stone", {
 	tiles = {"xocean_stone.png"},
 	groups = {cracky=3},
 	drop= "xocean:ocean_cobble",
+	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_craft({
@@ -40,6 +42,7 @@ minetest.register_node("xocean:ocean_carved", {
 	description = "Carved Ocean Stone",
 	tiles = {"xocean_carved.png"},
 	groups = {cracky=2},
+	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_craft({
@@ -54,6 +57,7 @@ minetest.register_node("xocean:ocean_circular", {
 	description = "Circular Ocean Stone",
 	tiles = {"xocean_circular.png"},
 	groups = {cracky=2},
+	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_craft({
@@ -68,6 +72,7 @@ minetest.register_node("xocean:ocean_pillar", {
 	description = "Ocean Pillar",
 	tiles = {"xocean_pillar.png"},
 	groups = {cracky=2},
+	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_craft({
@@ -82,6 +87,7 @@ minetest.register_node("xocean:ocean_brick", {
 	description = "Ocean Brick",
 	tiles = {"xocean_brick.png"},
 	groups = {cracky=2},
+	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_craft({
@@ -119,6 +125,7 @@ minetest.register_node("xocean:kelp_block", {
 	tiles = {"xocean_kelp_block.png"},
 	groups = {snappy=3},
 	drop= "xocean:kelp 9",
+	sounds = default.node_sound_leaves_defaults(),
 })
 minetest.register_craft({
 	output = '"xocean:kelp_block" 1',
@@ -1718,7 +1725,7 @@ local l_water_level		= minetest.setting_get("water_level") - 2
 	})
 	mobs:spawn_specific("xocean:dolphin",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	5, 20, 30, 10000, 2, -31000, l_water_level)
 	mobs:register_egg("xocean:dolphin", "Dolphin", "xocean_stone.png", 1)
-	
+
 mobs:register_mob("xocean:fish", {
 		type = "animal",
 		hp_min = 5,
@@ -1804,7 +1811,7 @@ mobs:register_mob("xocean:fish2", {
 	})
 	mobs:spawn_specific("xocean:fish2",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	2, 20, 30, 10000, 5, -31000, l_water_level)
 	mobs:register_egg("xocean:fish2", "Tropical Fish (SunStreak)", "xocean_fish2.png", 0)
-	
+
 mobs:register_mob("xocean:fish3", {
 		type = "animal",
 		hp_min = 5,
@@ -1847,7 +1854,7 @@ mobs:register_mob("xocean:fish3", {
 	})
 	mobs:spawn_specific("xocean:fish3",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	2, 20, 30, 10000, 5, -31000, l_water_level)
 	mobs:register_egg("xocean:fish3", "Tropical Fish (Dasher)", "xocean_fish3.png", 0)
-	
+
 mobs:register_mob("xocean:fish4", {
 		type = "animal",
 		hp_min = 5,
