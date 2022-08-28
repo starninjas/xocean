@@ -343,7 +343,7 @@ minetest.register_node("xocean:pickle", {
 minetest.register_node("xocean:brain_block", {
 	description = "Brain Coral Block",
 	tiles = {"xocean_coral_brain.png"},
-	groups = {cracky = 3},
+	groups = {cracky = 3, coral = 1},
 	drop = "xocean:brain_skeleton",
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -355,7 +355,7 @@ minetest.override_item("default:coral_pink", {
 	tiles = {"xocean_coral_brain.png"},
 	special_tiles = {{name = "xocean_brain.png", tileable_vertical = true}},
 	inventory_image = "xocean_brain.png",
-	groups = {snappy = 3},
+	groups = {snappy = 3, coral = 1},
 	selection_box = {
 		type = "fixed",
 		fixed = {
@@ -406,7 +406,7 @@ minetest.override_item("default:coral_pink", {
 minetest.register_node("xocean:brain_skeleton", {
 	description = "Brain Coral Skeleton Block",
 	tiles = {"xocean_coral_brain_skeleton.png"},
-	groups = {cracky = 3},
+	groups = {cracky = 3, coral = 1},
 	sounds = default.node_sound_stone_defaults(),
 })
 minetest.register_node("xocean:skeleton_brain", {
@@ -417,7 +417,7 @@ minetest.register_node("xocean:skeleton_brain", {
 	tiles = {"xocean_coral_brain_skeleton.png"},
 	special_tiles = {{name = "xocean_brain_skeleton.png", tileable_vertical = true}},
 	inventory_image = "xocean_brain_skeleton.png",
-	groups = {snappy = 3},
+	groups = {snappy = 3, coral = 1},
 	selection_box = {
 		type = "fixed",
 		fixed = {
@@ -468,7 +468,7 @@ minetest.register_node("xocean:skeleton_brain", {
 minetest.register_node("xocean:tube_block", {
 	description = "Tube Coral Block",
 	tiles = {"xocean_coral_tube.png"},
-	groups = {cracky = 3},
+	groups = {cracky = 3, coral = 1},
 	drop = "xocean:tube_skeleton",
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -480,7 +480,7 @@ minetest.override_item("default:coral_cyan", {
 	tiles = {"xocean_coral_tube.png"},
 	special_tiles = {{name = "xocean_tube.png", tileable_vertical = true}},
 	inventory_image = "xocean_tube.png",
-	groups = {snappy = 3},
+	groups = {snappy = 3, coral = 1},
 	selection_box = {
 		type = "fixed",
 		fixed = {
@@ -532,7 +532,7 @@ minetest.override_item("default:coral_cyan", {
 minetest.register_node("xocean:tube_skeleton", {
 	description = "Tube Coral Skeleton Block",
 	tiles = {"xocean_coral_tube_skeleton.png"},
-	groups = {cracky = 3},
+	groups = {cracky = 3, coral = 1},
 	sounds = default.node_sound_stone_defaults(),
 })
 minetest.register_node("xocean:skeleton_tube", {
@@ -543,7 +543,7 @@ minetest.register_node("xocean:skeleton_tube", {
 	tiles = {"xocean_coral_tube_skeleton.png"},
 	special_tiles = {{name = "xocean_tube_skeleton.png", tileable_vertical = true}},
 	inventory_image = "xocean_tube_skeleton.png",
-	groups = {snappy = 3},
+	groups = {snappy = 3, coral = 1},
 	selection_box = {
 		type = "fixed",
 		fixed = {
@@ -594,7 +594,7 @@ minetest.register_node("xocean:skeleton_tube", {
 minetest.register_node("xocean:bubble_block", {
 	description = "Bubble Coral Block",
 	tiles = {"xocean_coral_bubble.png"},
-	groups = {cracky = 3},
+	groups = {cracky = 3, coral = 1},
 	drop = "xocean:bubble_skeleton",
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -607,7 +607,7 @@ minetest.register_node("xocean:bubble", {
 	tiles = {"xocean_coral_bubble.png"},
 	special_tiles = {{name = "xocean_bubble.png", tileable_vertical = true}},
 	inventory_image = "xocean_bubble.png",
-	groups = {snappy = 3},
+	groups = {snappy = 3, coral = 1},
 	selection_box = {
 		type = "fixed",
 		fixed = {
@@ -658,7 +658,7 @@ minetest.register_node("xocean:bubble", {
 minetest.register_node("xocean:bubble_skeleton", {
 	description = "Bubble Coral Skeleton Block",
 	tiles = {"xocean_coral_bubble_skeleton.png"},
-	groups = {cracky = 3},
+	groups = {cracky = 3, coral = 1},
 	sounds = default.node_sound_stone_defaults(),
 })
 minetest.register_node("xocean:skeleton_bubble", {
@@ -669,7 +669,7 @@ minetest.register_node("xocean:skeleton_bubble", {
 	tiles = {"xocean_coral_bubble_skeleton.png"},
 	special_tiles = {{name = "xocean_bubble_skeleton.png", tileable_vertical = true}},
 	inventory_image = "xocean_bubble_skeleton.png",
-	groups = {snappy = 3},
+	groups = {snappy = 3, coral = 1},
 	selection_box = {
 		type = "fixed",
 		fixed = {
@@ -721,7 +721,7 @@ minetest.register_node("xocean:skeleton_bubble", {
 minetest.override_item("default:coral_brown", {
  	description = "Horn Coral Block",
 	tiles = {"xocean_coral_horn.png"},
-	groups = {cracky = 3},
+	groups = {cracky = 3, coral = 1},
 	drop = "default:coral_skeleton",
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -733,7 +733,7 @@ minetest.register_node("xocean:horn", {
 	tiles = {"xocean_coral_horn.png"},
 	special_tiles = {{name = "xocean_horn.png", tileable_vertical = true}},
 	inventory_image = "xocean_horn.png",
-	groups = {snappy = 3},
+	groups = {snappy = 3, coral = 1},
 	drop = "xocean:skeleton_horn",
 	selection_box = {
 		type = "fixed",
@@ -785,7 +785,7 @@ minetest.register_node("xocean:horn", {
 minetest.override_item("default:coral_skeleton", {
  	description = "Horn Coral Skeleton Block",
 	tiles = {"xocean_coral_horn_skeleton.png"},
-	groups = {cracky = 3},
+	groups = {cracky = 3, coral = 1},
 	sounds = default.node_sound_stone_defaults(),
 })
 minetest.register_node("xocean:skeleton_horn", {
@@ -796,7 +796,7 @@ minetest.register_node("xocean:skeleton_horn", {
 	tiles = {"xocean_coral_horn_skeleton.png"},
 	special_tiles = {{name = "xocean_horn_skeleton.png", tileable_vertical = true}},
 	inventory_image = "xocean_horn_skeleton.png",
-	groups = {snappy = 3},
+	groups = {snappy = 3, coral = 1},
 	selection_box = {
 		type = "fixed",
 		fixed = {
@@ -849,7 +849,7 @@ minetest.register_node("xocean:skeleton_horn", {
 minetest.override_item("default:coral_orange", {
  	description = "Fire Coral Block",
 	tiles = {"xocean_coral_fire.png"},
-	groups = {cracky = 3},
+	groups = {cracky = 3, coral = 1},
 	drop = "xocean:fire_skeleton",
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -861,7 +861,7 @@ minetest.register_node("xocean:fire", {
 	tiles = {"xocean_coral_fire.png"},
 	special_tiles = {{name = "xocean_fire.png", tileable_vertical = true}},
 	inventory_image = "xocean_fire.png",
-	groups = {snappy = 3},
+	groups = {snappy = 3, coral = 1},
 	selection_box = {
 		type = "fixed",
 		fixed = {
@@ -913,7 +913,7 @@ minetest.register_node("xocean:fire", {
 minetest.register_node("xocean:fire_skeleton", {
  	description = "Fire Coral Skeleton Block",
 	tiles = {"xocean_coral_fire_skeleton.png"},
-	groups = {cracky = 3},
+	groups = {cracky = 3, coral = 1},
 	sounds = default.node_sound_stone_defaults(),
 })
 minetest.register_node("xocean:skeleton_fire", {
@@ -924,7 +924,7 @@ minetest.register_node("xocean:skeleton_fire", {
 	tiles = {"xocean_coral_fire_skeleton.png"},
 	special_tiles = {{name = "xocean_fire_skeleton.png", tileable_vertical = true}},
 	inventory_image = "xocean_fire_skeleton.png",
-	groups = {snappy = 3},
+	groups = {snappy = 3, coral = 1},
 	selection_box = {
 		type = "fixed",
 		fixed = {
@@ -1688,8 +1688,13 @@ local l_water_level		= minetest.setting_get("water_level") - 2
 			{"mobs_dolphin.png"}
 		},
 		drops = {
-        {name = "mobs:meat_raw", chance = 1, min = 2, max = 4},
-    },
+       			 {name = "mobs:meat_raw", chance = 1, min = 2, max = 4},
+  		},
+		sounds = {
+			random = "dolphin_call",
+			distance = 700,
+		},
+		stay_near = {nodes = "default:water_source", chance = 5},
 		makes_footstep_sound = false,
 		walk_velocity = 4,
 		run_velocity = 6,
@@ -1702,18 +1707,19 @@ local l_water_level		= minetest.setting_get("water_level") - 2
 		view_range = 30,
 		water_damage = 0,
 		lava_damage = 10,
+		air_damage = 1,
 		jump = false,
 		stepheight = 0.1,
 		light_damage = 0,
 		animation = {
-		speed_normal = 15,
-	    speed_run = 25,
-		stand_start = 40,
-		stand_end = 100,
-	    walk_start = 40,
-	    walk_end = 100,
-	    run_start = 40,
-	    run_end = 100,
+			speed_normal = 15,
+	    		speed_run = 25,
+			stand_start = 40,
+			stand_end = 100,
+	    		walk_start = 40,
+	    		walk_end = 100,
+	    		run_start = 40,
+	    		run_end = 100,
 		},
 	})
 	mobs:spawn_specific("xocean:dolphin",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	5, 20, 30, 10000, 2, -31000, l_water_level)
@@ -1735,29 +1741,30 @@ mobs:register_mob("xocean:fish", {
 			{"mobs_fishy3.png"}
 		},
 		drops = {
-        {name = "xocean:fish_edible", chance = 1, min = 1, max = 1},
-    },
+       			 {name = "xocean:fish_edible", chance = 1, min = 1, max = 1},
+   		},
+		stay_near = {nodes = "group:coral", chance = 5},
 		makes_footstep_sound = false,
 		walk_velocity = 2,
 		run_velocity = 3,
 		fly = true,
 		fly_in = "default:water_source",
 		jump = false,
-		stepheight = 0.1,
 		fall_speed = 0,
 		view_range = 30,
 		water_damage = 0,
 		lava_damage = 10,
+		air_damage = 8,
 		light_damage = 0,
 		animation = {
-		speed_normal = 15,
-	    speed_run = 25,
-		stand_start = 40,
-		stand_end = 100,
-	    walk_start = 40,
-	    walk_end = 100,
-	    run_start = 40,
-	    run_end = 100,
+			speed_normal = 15,
+	    		speed_run = 25,
+			stand_start = 40,
+			stand_end = 100,
+			walk_start = 40,
+	    		walk_end = 100,
+	    		run_start = 40,
+	    		run_end = 100,
 		},
 	})
 	mobs:spawn_specific("xocean:fish",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	2, 20, 30, 10000, 5, -31000, l_water_level)
@@ -1777,29 +1784,30 @@ mobs:register_mob("xocean:fish2", {
 			{"mobs_fishy6.png"}
 		},
 		drops = {
-        {name = "xocean:fish_edible", chance = 2, min = 1, max = 2},
-    },
+       			 {name = "xocean:fish_edible", chance = 2, min = 1, max = 2},
+    		},
+		stay_near = {nodes = "group:coral", chance = 5},
 		makes_footstep_sound = false,
 		walk_velocity = 2,
 		run_velocity = 3,
 		fly = true,
 		fly_in = "default:water_source",
 		jump = false,
-		stepheight = 0.1,
 		fall_speed = 0,
 		view_range = 30,
 		water_damage = 0,
 		lava_damage = 10,
+		air_damage = 8,
 		light_damage = 0,
 		animation = {
-		speed_normal = 15,
-	    speed_run = 25,
-		stand_start = 40,
-		stand_end = 100,
-	    walk_start = 40,
-	    walk_end = 100,
-	    run_start = 40,
-	    run_end = 100,
+			speed_normal = 15,
+	    		speed_run = 25,
+			stand_start = 40,
+			stand_end = 100,
+			walk_start = 40,
+	    		walk_end = 100,
+	    		run_start = 40,
+	    		run_end = 100,
 		},
 	})
 	mobs:spawn_specific("xocean:fish2",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	2, 20, 30, 10000, 5, -31000, l_water_level)
@@ -1820,29 +1828,30 @@ mobs:register_mob("xocean:fish3", {
 			{"mobs_fishy9.png"}
 		},
 		drops = {
-        {name = "xocean:fish_edible", chance = 2, min = 1, max = 2},
-    },
+        		{name = "xocean:fish_edible", chance = 2, min = 1, max = 2},
+    		},
+		stay_near = {nodes = "group:coral", chance = 5},
 		makes_footstep_sound = false,
 		walk_velocity = 2,
 		run_velocity = 3,
 		fly = true,
 		fly_in = "default:water_source",
 		jump = false,
-		stepheight = 0.1,
 		fall_speed = 0,
 		view_range = 30,
 		water_damage = 0,
 		lava_damage = 10,
+		air_damage = 8,
 		light_damage = 0,
 		animation = {
-		speed_normal = 15,
-	    speed_run = 25,
-		stand_start = 40,
-		stand_end = 100,
-	    walk_start = 40,
-	    walk_end = 100,
-	    run_start = 40,
-	    run_end = 100,
+			speed_normal = 15,
+	    		speed_run = 25,
+			stand_start = 40,
+			stand_end = 100,
+			walk_start = 40,
+	    		walk_end = 100,
+	    		run_start = 40,
+	    		run_end = 100,
 		},
 	})
 	mobs:spawn_specific("xocean:fish3",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	2, 20, 30, 10000, 5, -31000, l_water_level)
@@ -1863,29 +1872,30 @@ mobs:register_mob("xocean:fish4", {
 			{"mobs_fishy12.png"}
 		},
 		drops = {
-        {name = "xocean:fish_edible", chance = 2, min = 1, max = 2},
-    },
+       			 {name = "xocean:fish_edible", chance = 2, min = 1, max = 2},
+    		},
+		stay_near = {nodes = "group:coral", chance = 5},
 		makes_footstep_sound = false,
 		walk_velocity = 2,
 		run_velocity = 3,
 		fly = true,
 		fly_in = "default:water_source",
 		jump = false,
-		stepheight = 0.1,
 		fall_speed = 0,
 		view_range = 30,
 		water_damage = 0,
 		lava_damage = 10,
+		air_damage = 8,
 		light_damage = 0,
 		animation = {
-		speed_normal = 15,
-	    speed_run = 25,
-		stand_start = 40,
-		stand_end = 100,
-	    walk_start = 40,
-	    walk_end = 100,
-	    run_start = 40,
-	    run_end = 100,
+			speed_normal = 15,
+	    		speed_run = 25,
+			stand_start = 40,
+			stand_end = 100,
+			walk_start = 40,
+	    		walk_end = 100,
+	    		run_start = 40,
+	    		run_end = 100,
 		},
 	})
 	mobs:spawn_specific("xocean:fish4",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	2, 20, 30, 10000, 5, -31000, l_water_level)
