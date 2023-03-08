@@ -4,7 +4,7 @@ local modname = minetest.get_current_modname()
 local modpath = minetest.get_modpath(modname)
 local S = minetest.get_translator(modname)
 
-xoceans = {
+xocean = {
     version = os.time({year = 2022, month = 11, day = 14}),
     author = "starninjas",
     license = "MIT",
@@ -28,8 +28,8 @@ xoceans = {
     end,
 }
 
-xoceans.dofile("craftitems")
-xoceans.dofile("nodes", "init")
-xoceans.dofile("mobs", "init")
-xoceans.dofile("crafts")
-xoceans.dofile("mapgen")
+xocean.dofile("craftitems")
+xocean.dofile("nodes", "init")
+xocean.dofile("mobs", "init")
+xocean.dofile("crafts")
+xocean.dofile("mapgen")
