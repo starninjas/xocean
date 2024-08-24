@@ -1,3 +1,4 @@
+
 minetest.register_node("xocean:ocean_cobble", {
 	description = "Ocean Cobblestone",
 	tiles = {"xocean_cobble.png"},
@@ -13,30 +14,18 @@ minetest.register_node("xocean:ocean_stone", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_craft({
-	type = "cooking",
-	output = "xocean:ocean_stone",
-	recipe = "xocean:ocean_cobble",
-})
----Spawn the stone
-minetest.register_ore({
-		ore_type        = "blob",
-		ore             = "xocean:ocean_stone",
-		wherein         = {"default:sand"},
-		clust_scarcity  = 32 * 32 * 32,
-		clust_size      = 8,
-		y_min           = -15,
-		y_max           = 0,
-		noise_threshold = 0.0,
-		noise_params    = {
-			offset = 0.5,
-			scale = 0.2,
-			spread = {x = 8, y = 5, z = 8},
-			seed = -316,
-			octaves = 1,
-			persist = 0.0
-		},
-	})
+local f = string.format
+
+local modname = minetest.get_current_modname()
+local modpath = minetest.get_modpath(modname)
+local S = minetest.get_translator(modname)
+
+
+xocean = {
+    version = os.time({year = 2022, month = 11, day = 14}),
+    author = "starninjas",
+    license = "MIT",
+
 
 minetest.register_node("xocean:ocean_carved", {
 	description = "Carved Ocean Stone",
@@ -45,13 +34,12 @@ minetest.register_node("xocean:ocean_carved", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_craft({
-	output = '"xocean:ocean_carved" 4',
-	recipe = {
-		{'xocean:ocean_stone', 'xocean:ocean_stone',},
-		{'xocean:ocean_stone', 'xocean:ocean_stone',},
-		},
-})
+    modname = modname,
+    modpath = modpath,
+
+
+    S = S,
+
 
 minetest.register_node("xocean:ocean_circular", {
 	description = "Circular Ocean Stone",
@@ -621,359 +609,22 @@ minetest.register_node("xocean:bubble", {
 				{-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
 				{-4/16, 0.5, -4/16, 4/16, 1.5, 4/16},
 		},
+
+    has = {
+		mobs = minetest.get_modpath("mobs") and mobs.mod == "redo",
+
 	},
-	node_dig_prediction = "xocean:bubble_block",
-	node_placement_prediction = "",
-	sounds = default.node_sound_stone_defaults({
-		dig = {name = "default_dig_snappy", gain = 0.2},
-		dug = {name = "default_grass_footstep", gain = 0.25},
-	}),
 
-	on_place = function(itemstack, placer, pointed_thing)
-		if pointed_thing.type ~= "node" or not placer then
-			return itemstack
-		end
+    log = function(level, message, ...)
+        message = message:format(...)
+        minetest.log(level, f("[%s] %s", modname, message))
+    end,
 
-		local player_name = placer:get_player_name()
-		local pos_under = pointed_thing.under
-		local pos_above = pointed_thing.above
+    dofile = function(...)
+        dofile(table.concat({modpath, ...}, DIR_DELIM) .. ".lua")
+    end,
+}
 
-		if minetest.get_node(pos_under).name ~= "xocean:bubble_block" or
-				minetest.get_node(pos_above).name ~= "default:water_source" then
-			return itemstack
-		end
-
-		if minetest.is_protected(pos_under, player_name) or
-				minetest.is_protected(pos_above, player_name) then
-			minetest.chat_send_player(player_name, "Node is protected")
-			minetest.record_protection_violation(pos_under, player_name)
-			return itemstack
-		end
-
-		minetest.set_node(pos_under, {name = "xocean:bubble"})
-		if not (creative and creative.is_enabled_for(player_name)) then
-			itemstack:take_item()
-		end
-
-		return itemstack
-	end,
-
-	after_destruct  = function(pos, oldnode)
-		minetest.set_node(pos, {name = "xocean:bubble_block"})
-	end,
-})
-minetest.register_node("xocean:bubble_skeleton", {
-	description = "Bubble Coral Skeleton Block",
-	tiles = {"xocean_coral_bubble_skeleton.png"},
-	groups = {cracky = 3},
-	sounds = default.node_sound_stone_defaults(),
-})
-minetest.register_node("xocean:skeleton_bubble", {
-	description = "Bubble Coral Skeleton",
-	drawtype = "plantlike_rooted",
-	waving = 1,
-	paramtype = "light",
-	tiles = {"xocean_coral_bubble_skeleton.png"},
-	special_tiles = {{name = "xocean_bubble_skeleton.png", tileable_vertical = true}},
-	inventory_image = "xocean_bubble_skeleton.png",
-	groups = {snappy = 3},
-	selection_box = {
-		type = "fixed",
-		fixed = {
-				{-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
-				{-4/16, 0.5, -4/16, 4/16, 1.5, 4/16},
-		},
-	},
-	drop = "xocean:skeleton_bubble",
-	node_dig_prediction = "xocean:bubble_skeleton",
-	node_placement_prediction = "",
-	sounds = default.node_sound_stone_defaults({
-		dig = {name = "default_dig_snappy", gain = 0.2},
-		dug = {name = "default_grass_footstep", gain = 0.25},
-	}),
-
-	on_place = function(itemstack, placer, pointed_thing)
-		if pointed_thing.type ~= "node" or not placer then
-			return itemstack
-		end
-
-		local player_name = placer:get_player_name()
-		local pos_under = pointed_thing.under
-		local pos_above = pointed_thing.above
-
-		if minetest.get_node(pos_under).name ~= "xocean:bubble_skeleton" or
-				minetest.get_node(pos_above).name ~= "default:water_source" then
-			return itemstack
-		end
-
-		if minetest.is_protected(pos_under, player_name) or
-				minetest.is_protected(pos_above, player_name) then
-			minetest.chat_send_player(player_name, "Node is protected")
-			minetest.record_protection_violation(pos_under, player_name)
-			return itemstack
-		end
-
-		minetest.set_node(pos_under, {name = "xocean:skeleton_bubble"})
-		if not (creative and creative.is_enabled_for(player_name)) then
-			itemstack:take_item()
-		end
-
-		return itemstack
-	end,
-
-	after_destruct  = function(pos, oldnode)
-		minetest.set_node(pos, {name = "xocean:bubble_skeleton"})
-	end,
-})
-minetest.override_item("default:coral_brown", {
- 	description = "Horn Coral Block",
-	tiles = {"xocean_coral_horn.png"},
-	groups = {cracky = 3},
-	drop = "default:coral_skeleton",
-	sounds = default.node_sound_stone_defaults(),
-})
-minetest.register_node("xocean:horn", {
-	description = "Horn Coral",
-	drawtype = "plantlike_rooted",
-	waving = 1,
-	paramtype = "light",
-	tiles = {"xocean_coral_horn.png"},
-	special_tiles = {{name = "xocean_horn.png", tileable_vertical = true}},
-	inventory_image = "xocean_horn.png",
-	groups = {snappy = 3},
-	drop = "xocean:skeleton_horn",
-	selection_box = {
-		type = "fixed",
-		fixed = {
-				{-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
-				{-4/16, 0.5, -4/16, 4/16, 1.5, 4/16},
-		},
-	},
-	node_dig_prediction = "default:coral_brown",
-	node_placement_prediction = "",
-	sounds = default.node_sound_stone_defaults({
-		dig = {name = "default_dig_snappy", gain = 0.2},
-		dug = {name = "default_grass_footstep", gain = 0.25},
-	}),
-
-	on_place = function(itemstack, placer, pointed_thing)
-		if pointed_thing.type ~= "node" or not placer then
-			return itemstack
-		end
-
-		local player_name = placer:get_player_name()
-		local pos_under = pointed_thing.under
-		local pos_above = pointed_thing.above
-
-		if minetest.get_node(pos_under).name ~= "default:coral_brown" or
-				minetest.get_node(pos_above).name ~= "default:water_source" then
-			return itemstack
-		end
-
-		if minetest.is_protected(pos_under, player_name) or
-				minetest.is_protected(pos_above, player_name) then
-			minetest.chat_send_player(player_name, "Node is protected")
-			minetest.record_protection_violation(pos_under, player_name)
-			return itemstack
-		end
-
-		minetest.set_node(pos_under, {name = "xocean:horn"})
-		if not (creative and creative.is_enabled_for(player_name)) then
-			itemstack:take_item()
-		end
-
-		return itemstack
-	end,
-
-	after_destruct  = function(pos, oldnode)
-		minetest.set_node(pos, {name = "xocean:horn_block"})
-	end,
-})
-minetest.override_item("default:coral_skeleton", {
- 	description = "Horn Coral Skeleton Block",
-	tiles = {"xocean_coral_horn_skeleton.png"},
-	groups = {cracky = 3},
-	sounds = default.node_sound_stone_defaults(),
-})
-minetest.register_node("xocean:skeleton_horn", {
-	description = "Horn Coral Skeleton",
-	drawtype = "plantlike_rooted",
-	waving = 1,
-	paramtype = "light",
-	tiles = {"xocean_coral_horn_skeleton.png"},
-	special_tiles = {{name = "xocean_horn_skeleton.png", tileable_vertical = true}},
-	inventory_image = "xocean_horn_skeleton.png",
-	groups = {snappy = 3},
-	selection_box = {
-		type = "fixed",
-		fixed = {
-				{-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
-				{-4/16, 0.5, -4/16, 4/16, 1.5, 4/16},
-		},
-	},
-	drop = "xocean:skeleton_horn",
-	node_dig_prediction = "xocean:horn_skeleton",
-	node_placement_prediction = "",
-	sounds = default.node_sound_stone_defaults({
-		dig = {name = "default_dig_snappy", gain = 0.2},
-		dug = {name = "default_grass_footstep", gain = 0.25},
-	}),
-
-	on_place = function(itemstack, placer, pointed_thing)
-		if pointed_thing.type ~= "node" or not placer then
-			return itemstack
-		end
-
-		local player_name = placer:get_player_name()
-		local pos_under = pointed_thing.under
-		local pos_above = pointed_thing.above
-
-		-- if minetest.get_node(pos_under).name ~= "xocean:horn_skeleton" or
-		if minetest.get_node(pos_under).name ~= "default:coral_skeleton" or
-				minetest.get_node(pos_above).name ~= "default:water_source" then
-			return itemstack
-		end
-
-		if minetest.is_protected(pos_under, player_name) or
-				minetest.is_protected(pos_above, player_name) then
-			minetest.chat_send_player(player_name, "Node is protected")
-			minetest.record_protection_violation(pos_under, player_name)
-			return itemstack
-		end
-
-		minetest.set_node(pos_under, {name = "xocean:skeleton_horn"})
-		if not (creative and creative.is_enabled_for(player_name)) then
-			itemstack:take_item()
-		end
-
-		return itemstack
-	end,
-
-	after_destruct  = function(pos, oldnode)
-		minetest.set_node(pos, {name = "xocean:horn_skeleton"})
-	end,
-})
-minetest.override_item("default:coral_orange", {
- 	description = "Fire Coral Block",
-	tiles = {"xocean_coral_fire.png"},
-	groups = {cracky = 3},
-	drop = "xocean:fire_skeleton",
-	sounds = default.node_sound_stone_defaults(),
-})
-minetest.register_node("xocean:fire", {
-	description = "Fire Coral",
-	drawtype = "plantlike_rooted",
-	waving = 1,
-	paramtype = "light",
-	tiles = {"xocean_coral_fire.png"},
-	special_tiles = {{name = "xocean_fire.png", tileable_vertical = true}},
-	inventory_image = "xocean_fire.png",
-	groups = {snappy = 3},
-	selection_box = {
-		type = "fixed",
-		fixed = {
-				{-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
-				{-4/16, 0.5, -4/16, 4/16, 1.5, 4/16},
-		},
-	},
-	drop = "xocean:skeleton_fire",
-	node_dig_prediction = "xocean:default:coral_orange",
-	node_placement_prediction = "",
-	sounds = default.node_sound_stone_defaults({
-		dig = {name = "default_dig_snappy", gain = 0.2},
-		dug = {name = "default_grass_footstep", gain = 0.25},
-	}),
-
-	on_place = function(itemstack, placer, pointed_thing)
-		if pointed_thing.type ~= "node" or not placer then
-			return itemstack
-		end
-
-		local player_name = placer:get_player_name()
-		local pos_under = pointed_thing.under
-		local pos_above = pointed_thing.above
-
-		if minetest.get_node(pos_under).name ~= "default:coral_orange" or
-				minetest.get_node(pos_above).name ~= "default:water_source" then
-			return itemstack
-		end
-
-		if minetest.is_protected(pos_under, player_name) or
-				minetest.is_protected(pos_above, player_name) then
-			minetest.chat_send_player(player_name, "Node is protected")
-			minetest.record_protection_violation(pos_under, player_name)
-			return itemstack
-		end
-
-		minetest.set_node(pos_under, {name = "xocean:fire"})
-		if not (creative and creative.is_enabled_for(player_name)) then
-			itemstack:take_item()
-		end
-
-		return itemstack
-	end,
-
-	after_destruct  = function(pos, oldnode)
-		minetest.set_node(pos, {name = "default:coral_orange"})
-	end,
-})
-minetest.register_node("xocean:fire_skeleton", {
- 	description = "Fire Coral Skeleton Block",
-	tiles = {"xocean_coral_fire_skeleton.png"},
-	groups = {cracky = 3},
-	sounds = default.node_sound_stone_defaults(),
-})
-minetest.register_node("xocean:skeleton_fire", {
-	description = "Fire Coral Skeleton",
-	drawtype = "plantlike_rooted",
-	waving = 1,
-	paramtype = "light",
-	tiles = {"xocean_coral_fire_skeleton.png"},
-	special_tiles = {{name = "xocean_fire_skeleton.png", tileable_vertical = true}},
-	inventory_image = "xocean_fire_skeleton.png",
-	groups = {snappy = 3},
-	selection_box = {
-		type = "fixed",
-		fixed = {
-				{-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
-				{-4/16, 0.5, -4/16, 4/16, 1.5, 4/16},
-		},
-	},
-	node_dig_prediction = "xocean:fire_skeleton",
-	node_placement_prediction = "",
-	sounds = default.node_sound_stone_defaults({
-		dig = {name = "default_dig_snappy", gain = 0.2},
-		dug = {name = "default_grass_footstep", gain = 0.25},
-	}),
-
-	on_place = function(itemstack, placer, pointed_thing)
-		if pointed_thing.type ~= "node" or not placer then
-			return itemstack
-		end
-
-		local player_name = placer:get_player_name()
-		local pos_under = pointed_thing.under
-		local pos_above = pointed_thing.above
-
-		if minetest.get_node(pos_under).name ~= "xocean:fire_skeleton" or
-				minetest.get_node(pos_above).name ~= "default:water_source" then
-			return itemstack
-		end
-
-		if minetest.is_protected(pos_under, player_name) or
-				minetest.is_protected(pos_above, player_name) then
-			minetest.chat_send_player(player_name, "Node is protected")
-			minetest.record_protection_violation(pos_under, player_name)
-			return itemstack
-		end
-
-		minetest.set_node(pos_under, {name = "xocean:skeleton_fire"})
-		if not (creative and creative.is_enabled_for(player_name)) then
-			itemstack:take_item()
-		end
-
-		return itemstack
-	end,
 
 	after_destruct  = function(pos, oldnode)
 		minetest.set_node(pos, {name = "xocean:fire_skeleton"})
@@ -1898,3 +1549,10 @@ mobs:register_mob("xocean:fish4", {
 	mobs:spawn_specific("xocean:fish4",	{"default:water_source"},	{"default:water_flowing","default:water_source"},	2, 20, 30, 10000, 5, -31000, l_water_level)
 	mobs:register_egg("xocean:fish4", "Tropical Fish (Snapper)", "xocean_fish4.png", 0)
 end
+=======
+xocean.dofile("craftitems")
+xocean.dofile("nodes", "init")
+xocean.dofile("mobs", "init")
+xocean.dofile("crafts")
+xocean.dofile("mapgen")
+
