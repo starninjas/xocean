@@ -1,3 +1,5 @@
+local S = xocean.S
+
 local function register_plant(name, def)
 	def.drawtype = "plantlike_rooted"
 	def.waving = 1
@@ -37,7 +39,7 @@ local function register_plant(name, def)
 		end
 
 		if minetest.is_protected(pos_under, player_name) or minetest.is_protected(pos_above, player_name) then
-			minetest.chat_send_player(player_name, "Node is protected")
+			minetest.chat_send_player(player_name, S("Node is protected"))
 			return
 		end
 
@@ -53,7 +55,7 @@ local function register_plant(name, def)
 end
 
 minetest.override_item("default:sand_with_kelp", {
-	description = "Kelp",
+	description = S("Kelp"),
 	special_tiles = { { name = "default_kelp.png", tileable_vertical = true } },
 	inventory_image = "xocean_kelp.png",
 	wield_image = "xocean_kelp.png",
@@ -87,7 +89,7 @@ minetest.override_item("default:sand_with_kelp", {
 		end
 
 		if minetest.is_protected(pos_under, player_name) then
-			minetest.chat_send_player(player_name, "Node is protected")
+			minetest.chat_send_player(player_name, S("Node is protected"))
 			return
 		end
 
@@ -116,13 +118,13 @@ minetest.override_item("default:sand_with_kelp", {
 				return itemstack
 			end
 		else
-			minetest.chat_send_player(player_name, "Node is protected")
+			minetest.chat_send_player(player_name, S("Node is protected"))
 		end
 	end
 })
 
 register_plant("xocean:seagrass", {
-	description = "Seagrass",
+	description = S("Seagrass"),
 	special_tiles = { { name = "xocean_grass.png", tileable_vertical = true } },
 	inventory_image = "xocean_grass.png",
 	selection_box = {
@@ -135,7 +137,7 @@ register_plant("xocean:seagrass", {
 })
 
 register_plant("xocean:pickle", {
-	description = "Sea Pickle",
+	description = S("Sea Pickle"),
 	special_tiles = { { name = "xocean_pickle.png", tileable_vertical = true } },
 	inventory_image = "xocean_pickle.png",
 	selection_box = {

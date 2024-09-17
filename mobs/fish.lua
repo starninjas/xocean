@@ -1,3 +1,4 @@
+local S = xocean.S
 local l_water_level = (tonumber(minetest.settings:get("water_level")) or 1) - 2
 
 local function register_fish(name, def)
@@ -35,18 +36,20 @@ local function register_fish(name, def)
 
 	mobs:register_mob(name, def)
 
-	mobs:spawn_specific(
-		name,
-		{"default:water_source"},
-		{"default:water_flowing", "default:water_source"},
-		2,
-		20,
-		30,
-		10000,
-		5,
-		-31000,
-		l_water_level
-	)
+	if not xocean.custom_spawn then
+		mobs:spawn_specific(
+			name,
+			{"default:water_source"},
+			{"default:water_flowing", "default:water_source"},
+			2,
+			20,
+			30,
+			10000,
+			5,
+			-31000,
+			l_water_level
+		)
+	end
 end
 
 register_fish("xocean:fish", {
@@ -60,7 +63,7 @@ register_fish("xocean:fish", {
 		{name = "xocean:fish_edible", chance = 1, min = 1, max = 1},
 	},
 })
-mobs:register_egg("xocean:fish", "Tropical Fish (Kob)", "xocean_fish.png", 0)
+mobs:register_egg("xocean:fish", S("Tropical Fish (Kob)"), "xocean_fish.png", 0)
 
 register_fish("xocean:fish2", {
 	textures = {
@@ -72,7 +75,7 @@ register_fish("xocean:fish2", {
 		{name = "xocean:fish_edible", chance = 2, min = 1, max = 2},
 	},
 })
-mobs:register_egg("xocean:fish2", "Tropical Fish (SunStreak)", "xocean_fish2.png", 0)
+mobs:register_egg("xocean:fish2", S("Tropical Fish (SunStreak)"), "xocean_fish2.png", 0)
 
 register_fish("xocean:fish3", {
 	textures = {
@@ -84,7 +87,7 @@ register_fish("xocean:fish3", {
 		{name = "xocean:fish_edible", chance = 2, min = 1, max = 2},
 	},
 })
-mobs:register_egg("xocean:fish3", "Tropical Fish (Dasher)", "xocean_fish3.png", 0)
+mobs:register_egg("xocean:fish3", S("Tropical Fish (Dasher)"), "xocean_fish3.png", 0)
 
 register_fish("xocean:fish4", {
 	textures = {
@@ -96,4 +99,4 @@ register_fish("xocean:fish4", {
 		{name = "xocean:fish_edible", chance = 2, min = 1, max = 2},
 	},
 })
-mobs:register_egg("xocean:fish4", "Tropical Fish (Snapper)", "xocean_fish4.png", 0)
+mobs:register_egg("xocean:fish4", S("Tropical Fish (Snapper)"), "xocean_fish4.png", 0)

@@ -1,5 +1,7 @@
+local S = xocean.S
+
 minetest.register_node("xocean:sea_lantern", {
-	description = "Sea Lantern",
+	description = S("Sea Lantern"),
 	drawtype = "glasslike",
 	light_source = 14,
 	tiles = { "xocean_lantern.png" },
@@ -11,7 +13,7 @@ minetest.register_node("xocean:sea_lantern", {
 })
 
 minetest.register_node("xocean:kelp_block", {
-	description = "Dried Kelp Block",
+	description = S("Dried Kelp Block"),
 	tiles = { "xocean_kelp_block.png" },
 	groups = { snappy = 3 },
 	drop = "xocean:kelp 9",
