@@ -1,3 +1,4 @@
+local S = xocean.S
 local l_water_level = (tonumber(minetest.settings:get("water_level")) or 1) - 2
 
 mobs:register_mob("xocean:dolphin", {
@@ -62,4 +63,4 @@ mobs:spawn_specific(
 	-31000,
 	l_water_level
 )
-mobs:register_egg("xocean:dolphin", "Dolphin", "xocean_stone.png", 1)
+mobs:register_egg("xocean:dolphin", S("Dolphin"), "xocean_stone.png", 1)

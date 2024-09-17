@@ -1,3 +1,5 @@
+local S = xocean.S
+
 local function register_coral(block_name, block_def, skeleton_name, skeleton_def, rooted_name, rooted_def, rooted_skeleton_name, rooted_skeleton_def)
 	block_def.tiles, block_def.tile = {block_def.tile}, nil
 	block_def.groups = { cracky = 3, coral = 1 }
@@ -38,7 +40,7 @@ local function register_coral(block_name, block_def, skeleton_name, skeleton_def
 		local pos_above = vector.new(pos_under.x, pos_under.y + 1, pos_under.z)
 
 		if minetest.is_protected(pos_under, player_name) or minetest.is_protected(pos_above, player_name) then
-			minetest.chat_send_player(player_name, "Node is protected")
+			minetest.chat_send_player(player_name, S("Node is protected"))
 			return
 		end
 
@@ -89,7 +91,7 @@ local function register_coral(block_name, block_def, skeleton_name, skeleton_def
 		local pos_above = vector.new(pos_under.x, pos_under.y + 1, pos_under.z)
 
 		if minetest.is_protected(pos_under, player_name) or minetest.is_protected(pos_above, player_name) then
-			minetest.chat_send_player(player_name, "Node is protected")
+			minetest.chat_send_player(player_name, S("Node is protected"))
 			return
 		end
 
@@ -123,90 +125,90 @@ local function register_coral(block_name, block_def, skeleton_name, skeleton_def
 end
 
 register_coral("xocean:brain_block", {
-	description = "Brain Coral Block",
+	description = S("Brain Coral Block"),
 	tile = "xocean_coral_brain.png",
 }, "xocean:brain_skeleton", {
-	description = "Brain Coral Skeleton Block",
+	description = S("Brain Coral Skeleton Block"),
 	tile = "xocean_coral_brain_skeleton.png",
 }, "default:coral_pink", {
-	description = "Brain Coral",
+	description = S("Brain Coral"),
 	tile = "xocean_coral_brain.png",
 	special_tile = "xocean_brain.png",
 	inventory_image = "xocean_brain.png",
 }, "xocean:skeleton_brain", {
-	description = "Brain Coral Skeleton",
+	description = S("Brain Coral Skeleton"),
 	tile = "xocean_coral_brain_skeleton.png",
 	special_tile = "xocean_brain_skeleton.png",
 	inventory_image = "xocean_brain_skeleton.png",
 })
 
 register_coral("xocean:tube_block", {
-	description = "Tube Coral Block",
+	description = S("Tube Coral Block"),
 	tile = "xocean_coral_tube.png",
 }, "xocean:tube_skeleton", {
-	description = "Tube Coral Skeleton Block",
+	description = S("Tube Coral Skeleton Block"),
 	tile = "xocean_coral_tube_skeleton.png",
 }, "default:coral_cyan", {
-	description = "Tube Coral",
+	description = S("Tube Coral"),
 	tile = "xocean_coral_tube.png",
 	special_tile = "xocean_tube.png",
 	inventory_image = "xocean_tube.png",
 }, "xocean:skeleton_tube", {
-	description = "Tube Coral Skeleton",
+	description = S("Tube Coral Skeleton"),
 	tile = "xocean_coral_tube_skeleton.png",
 	special_tile = "xocean_tube_skeleton.png",
 	inventory_image = "xocean_tube_skeleton.png",
 })
 
 register_coral("xocean:bubble_block", {
-	description = "Bubble Coral Block",
+	description = S("Bubble Coral Block"),
 	tile = "xocean_coral_bubble.png",
 }, "xocean:bubble_skeleton", {
-	description = "Bubble Coral Skeleton Block",
+	description = S("Bubble Coral Skeleton Block"),
 	tile = "xocean_coral_bubble_skeleton.png",
 }, "xocean:bubble", {
-	description = "Bubble Coral",
+	description = S("Bubble Coral"),
 	tile = "xocean_coral_bubble.png",
 	special_tile = "xocean_bubble.png",
 	inventory_image = "xocean_bubble.png",
 }, "xocean:skeleton_bubble", {
-	description = "Bubble Coral Skeleton",
+	description = S("Bubble Coral Skeleton"),
 	tile = "xocean_coral_bubble_skeleton.png",
 	special_tile = "xocean_bubble_skeleton.png",
 	inventory_image = "xocean_bubble_skeleton.png",
 })
 
 register_coral("default:coral_brown", {
-	description = "Horn Coral Block",
+	description = S("Horn Coral Block"),
 	tile = "xocean_coral_horn.png",
 }, "xocean:horn_skeleton", {
-	description = "Horn Coral Skeleton Block",
+	description = S("Horn Coral Skeleton Block"),
 	tile = "xocean_coral_horn_skeleton.png",
 }, "xocean:horn", {
-	description = "Horn Coral",
+	description = S("Horn Coral"),
 	tile = "xocean_coral_horn.png",
 	special_tile = "xocean_horn.png",
 	inventory_image = "xocean_horn.png",
 }, "xocean:skeleton_horn", {
-	description = "Horn Coral Skeleton",
+	description = S("Horn Coral Skeleton"),
 	tile = "xocean_coral_horn_skeleton.png",
 	special_tile = "xocean_horn_skeleton.png",
 	inventory_image = "xocean_horn_skeleton.png",
 })
 
 register_coral("default:coral_orange", {
-	description = "Fire Coral Block",
+	description = S("Fire Coral Block"),
 	tile = "xocean_coral_fire.png",
 }, "xocean:fire_skeleton", {
-	description = "Fire Coral Skeleton Block",
+	description = S("Fire Coral Skeleton Block"),
 	tile = "xocean_coral_fire_skeleton.png",
 }, "xocean:fire", {
-	description = "Fire Coral",
+	description = S("Fire Coral"),
 	tile = "xocean_coral_fire.png",
 	special_tile = "xocean_fire.png",
 	inventory_image = "xocean_fire.png",
 }, "xocean:skeleton_fire", {
-	description = "Fire Coral Skeleton",
+	description = S("Fire Coral Skeleton"),
 	tile = "xocean_coral_fire_skeleton.png",
 	special_tile = "xocean_fire_skeleton.png",
 	inventory_image = "xocean_fire_skeleton.png",
