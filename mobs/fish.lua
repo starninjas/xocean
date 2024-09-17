@@ -36,18 +36,20 @@ local function register_fish(name, def)
 
 	mobs:register_mob(name, def)
 
-	mobs:spawn_specific(
-		name,
-		{"default:water_source"},
-		{"default:water_flowing", "default:water_source"},
-		2,
-		20,
-		30,
-		10000,
-		5,
-		-31000,
-		l_water_level
-	)
+	if not xocean.custom_spawn then
+		mobs:spawn_specific(
+			name,
+			{"default:water_source"},
+			{"default:water_flowing", "default:water_source"},
+			2,
+			20,
+			30,
+			10000,
+			5,
+			-31000,
+			l_water_level
+		)
+	end
 end
 
 register_fish("xocean:fish", {

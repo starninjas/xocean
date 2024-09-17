@@ -51,16 +51,20 @@ mobs:register_mob("xocean:dolphin", {
 		run_end = 100,
 	},
 })
-mobs:spawn_specific(
-	"xocean:dolphin",
-	{"default:water_source"},
-	{"default:water_flowing", "default:water_source"},
-	5,
-	20,
-	30,
-	10000,
-	2,
-	-31000,
-	l_water_level
-)
+
+if not xocean.custom_spawn then
+	mobs:spawn_specific(
+		"xocean:dolphin",
+		{"default:water_source"},
+		{"default:water_flowing", "default:water_source"},
+		5,
+		20,
+		30,
+		10000,
+		2,
+		-31000,
+		l_water_level
+	)
+end
+
 mobs:register_egg("xocean:dolphin", S("Dolphin"), "xocean_stone.png", 1)
