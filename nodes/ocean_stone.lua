@@ -27,8 +27,11 @@ minetest.register_node("xocean:ocean_circular", {
 
 minetest.register_node("xocean:ocean_pillar", {
 	description = S("Ocean Pillar"),
-	tiles = { "xocean_pillar.png" },
+	tiles = { "xocean_pillar_top.png", "xocean_pillar_top.png", "xocean_pillar.png" },
+	paramtype2 = "facedir",
 	groups = { cracky = 2 },
+
+	on_place = minetest.rotate_node
 })
 
 minetest.register_node("xocean:ocean_brick", {
