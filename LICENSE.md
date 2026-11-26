@@ -21,4 +21,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-Dolphins Sounds: https://freesound.org/people/steveygos93/sounds/118481/
+Dolphin sounds (sounds/dolphin_call.*.ogg): synthesized for xocean in 2026, same MIT license.
+They replace the earlier calls based on https://freesound.org/people/steveygos93/sounds/118481/

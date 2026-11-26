@@ -20,8 +20,10 @@ mobs:register_mob("xocean:dolphin", {
 		{name = "mobs:meat_raw", chance = 1, min = 2, max = 4},
 	},
 	sounds = {
-		random = "dolphin_call",
-		distance = 700,
+		-- soft synthesized whistles (mono, so the sound is positional), played lower (pitch also
+		-- slows them down) and quieter; Mobs Redo adds ±0.05 of random pitch
+		random = {name = "dolphin_call", gain = 0.4, pitch = 0.7},
+		distance = 24, -- was 700: every dolphin of the ocean could be heard
 	},
 	stay_near = {nodes = "default:water_source", chance = 5},
 	makes_footstep_sound = false,
